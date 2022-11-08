@@ -1,13 +1,8 @@
 const timer = document.getElementById('timer');
 
-function toTimer () {
-    if (Number(timer.textContent) > 0) {
-        timer.textContent = Number(timer.textContent) - 1;
-    } else {
-        return alert('Вы победили в конкурсе!');  
-    }
-}
 
+let timerId = setInterval(function toTimer () {
+    timer.textContent = Number(timer.textContent) - 1;
+}, 1000);
 
-
-setInterval(toTimer, 1000);
+setTimeout(() => {clearInterval(timerId); alert('Вы победили в конкурсе!'); }, 59000);
